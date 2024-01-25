@@ -11,8 +11,14 @@ html {
   font-size: 62.5%;
 }
 
-@import url(./assets/fonts/BubbleBubble.ttf);
-@import url(./assets/fonts/TechMono.ttf);
+@font-face {
+    font-family: TechMono;
+    src: url(./assets/fonts/TechMono.ttf);
+  }
+@font-face {
+    font-family: BubbleBubble;
+    src: url(./assets/fonts/BubbleBubble.TTF);
+  }
 
 
 :root {
