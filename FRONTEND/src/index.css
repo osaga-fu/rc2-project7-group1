@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@font-face {
+    font-family: TechMono;
+    src: url(./assets/fonts/TechMono.ttf);
+  }
+@font-face {
+    font-family: BubbleBubble;
+    src: url(./assets/fonts/BubbleBubble.TTF);
+  }
+
+
+:root {
+  --white: #F2F2EB;
+  --yellow: #F5DF32;
+  --green: #ABD904;
+  --cyan: #05DBF2;
+  --pink: #F2527D;
+  --orange: #F29F05;
+  --aquamarine: #024959;
+  --darkblue: #012E40;
+  --blue: #022859;
+  --fontTitles: "BubbleBubble",arial, sans-serif;
+  --font: "TechMono",arial, sans-serif;
+}
