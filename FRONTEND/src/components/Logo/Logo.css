@@ -3,7 +3,7 @@
     width: 43rem;
     height: 25rem;
     background-color: var(--darkblue);
-    border: 3px var(--white);
+    border: solid 3px var(--white);
     border-radius: 5rem;
     font-family: BubbleBubble;
     position: relative;

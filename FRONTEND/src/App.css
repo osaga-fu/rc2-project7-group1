@@ -1,3 +1,4 @@
-h1{
-    font-family: var(--fontTitles);
+body{
+    padding: 2rem;
+    background-color: var(--darkblue);
 }
