@@ -33,4 +33,11 @@ html {
   --blue: #022859;
   --fontTitles: "BubbleBubble",arial, sans-serif;
   --font: "TechMono",arial, sans-serif;
+
+}
+
+#root{
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
 }
