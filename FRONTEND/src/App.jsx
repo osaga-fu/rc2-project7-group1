@@ -1,10 +1,12 @@
 import './App.css'
+import { Logo } from './components/Logo/Logo'
+
 
 function App() {
   
   return (
     <>
-      <h1>Pixel Punch</h1>
+      <Logo/>
     </>
   )
 }
