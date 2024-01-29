@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemController {
 
     @GetMapping("/items")
-    public List<String> getItem() {
-        return List.of("item 1", "item 2", "item 3");    
+    public List<ItemResponse> showItems() {
+        return List.of(
+            new ItemResponse(1L, "Archivo 1", "www.prueba.com"),
+            new ItemResponse(2L, "Video 1", "www.youyube.com"),
+            new ItemResponse(3L, "documento 1", "www.gugle/trive.com")
+        );    
     }
 
     @PostMapping("/items")
