@@ -43,7 +43,7 @@ export const FormAddItem = ({ setNeedsReload }) => {
             type="text"
             value={newItemUrl}
             onChange={(e) => setNewItemUrl(e.target.value)}
-            placeholder="URL"
+            placeholder="https://example.com"
           />
         </div>
         <div className="buttonAddContainer">
