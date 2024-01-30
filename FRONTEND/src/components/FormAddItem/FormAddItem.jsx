@@ -1,15 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import "./FormAddItem.css";
-import {useState} from "react";
+import { useState } from "react";
 
-export const FormAddItem = ({setNeedsReload}) => {
+export const FormAddItem = ({ setNeedsReload }) => {
   const [newItemTitle, setNewItemTitle] = useState("");
   const [newItemUrl, setNewItemUrl] = useState("");
-  
-  const URL = "http://localhost:9000/items";
 
-  
+  const URL = "http://localhost:9000/items";
 
   const postItem = (e) => {
     e.preventDefault();
@@ -29,28 +27,36 @@ export const FormAddItem = ({setNeedsReload}) => {
   };
 
   return (
-    <section>
-      <form onSubmit={postItem}>
-        <label htmlFor="title">
-          Title
+      <form onSubmit={postItem} className="formContainer">
+        <div  className="inputContainer">
           <input
+            className="formInput"
             name="title"
             type="text"
             value={newItemTitle}
             onChange={(e) => setNewItemTitle(e.target.value)}
+            placeholder="Title"
           />
-        </label>
-        <label htmlFor="url">
-          URL
           <input
+            className="formInput"
             name="url"
             type="text"
             value={newItemUrl}
             onChange={(e) => setNewItemUrl(e.target.value)}
+            placeholder="URL"
           />
-        </label>
-        <input disabled={newItemTitle === ""} type="submit" value="Create" />
+        </div>
+        <div className="buttonAddContainer">
+          <button className="buttonAddText">
+            Añadir
+            <input
+              disabled={newItemTitle === ""}
+              type="submit"
+              value="+"
+              className="buttonAdd"
+            />
+          </button>
+        </div>
       </form>
-    </section>
   );
 };
