@@ -27,7 +27,10 @@ export const ResourceList = ({needsReload, setNeedsReload}) => {
         <section className="elementList" key={item.id}>
           <h3 className="titleElement">{item.title}</h3>
           <article className="elementContainer">
+            <a href={item.url} target="_blank">
+
             <h4 className="element">{item.url}</h4>
+            </a>
           </article>
         </section>
       ))}
