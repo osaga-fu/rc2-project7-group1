@@ -20,9 +20,6 @@ const theme = createTheme({
   },
 });
 
-
-
-
 export const ResourceList = ({ needsReload, setNeedsReload }) => {
   const [items, setItems] = useState([]);
   const URL = "http://localhost:9000/items";
@@ -39,6 +36,18 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
     }
   }, [needsReload]);
 
+  const handleDeleteItem = (id) => {
+    fetch(`${URL}/${id}`, {
+      method: 'DELETE',
+    })
+    .then(() => {
+      setNeedsReload(true);
+    })
+    .catch((error) => {
+      console.error('Error deleting item:', error);
+    });
+  };
+
   return (
     <main className="containerList">
       {items.map((item) => (
@@ -49,7 +58,7 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
               <h4 className="element">{item.url}</h4>
             </a>
             <div className="buttonContainer">
-              <button className="deleteButton">
+              <button className="deleteButton" onClick={() => handleDeleteItem(item.id)}>
               <ThemeProvider theme={theme}>
                 <DeleteForeverIcon  sx={{color:"secondary.main", fontSize: 50}}/>
               </ThemeProvider>
