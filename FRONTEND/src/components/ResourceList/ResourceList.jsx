@@ -6,6 +6,7 @@ import "./ResourceList.css";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { createTheme} from '@mui/material/styles';
 import { ThemeProvider } from "@emotion/react";
+import ModeIcon from '@mui/icons-material/Mode';
 
 const theme = createTheme({
   palette: {
@@ -41,7 +42,7 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
       method: 'DELETE',
     })
     .then(() => {
-      setNeedsReload(true);
+      setNeedsReload(true); 
     })
     .catch((error) => {
       console.error('Error deleting item:', error);
@@ -58,6 +59,11 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
               <h4 className="element">{item.url}</h4>
             </a>
             <div className="buttonContainer">
+              <button className="editButton" onClick={() => handleDeleteItem(item.id)}>
+              <ThemeProvider theme={theme}>
+                <ModeIcon  sx={{color:"secondary.main", fontSize: 50}}/>
+              </ThemeProvider>
+              </button>
               <button className="deleteButton" onClick={() => handleDeleteItem(item.id)}>
               <ThemeProvider theme={theme}>
                 <DeleteForeverIcon  sx={{color:"secondary.main", fontSize: 50}}/>
