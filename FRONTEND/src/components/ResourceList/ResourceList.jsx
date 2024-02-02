@@ -26,7 +26,6 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
   const URL = "http://localhost:9000/items";
 
   useEffect(() => {
-    console.log(needsReload);
     if (needsReload) {
       fetch(URL)
         .then((response) => response.json())
