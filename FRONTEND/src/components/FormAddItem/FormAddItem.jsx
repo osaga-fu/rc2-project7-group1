@@ -1,6 +1,6 @@
 import "./FormAddItem.css";
 import { useEffect, useState } from "react";
-import { json, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const FormAddItem = ({ setNeedsReload }) => {
   const [newItemTitle, setNewItemTitle] = useState("");
