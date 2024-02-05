@@ -20,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import group1.backend.persistence.Item;
 import group1.backend.persistence.ItemRepository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
