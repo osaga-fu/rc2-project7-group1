@@ -1,11 +1,10 @@
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Modal, IconButton } from "@mui/material";
 import { FormAddItem } from "../FormAddItem/FormAddItem";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState, useEffect } from "react";
 import "./AddItemModal.css";
+import { useResourcesContext } from "../Context/ResourcesContext";
 
 const style = {
   position: "absolute",
@@ -19,35 +18,20 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ setNeedsReload }) {
-  const [open, setOpen] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-    setShowMessage(false);
-  };
-  const handleClose = () => setOpen(false);
+export default function BasicModal() {
+  const { setNeedsReload, open, handleOpen, handleClose } =
+    useResourcesContext();
 
   return (
-    <div className="containerOpenModal"> 
+    <div className="containerOpenModal">
       <h1 className="title">Guarda aquí tus recursos</h1>
       <Button onClick={handleOpen}>
-        <div className="buttonAddText">AÑADIR
-        <input
-          type="submit"
-          value="+"
-          className="buttonAdd"
-        />
+        <div className="buttonAddText">
+          AÑADIR
+          <input type="submit" value="+" className="buttonAdd" />
         </div>
       </Button>
-        <Modal
-        setNeedsReload={setNeedsReload}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-
-      >
+      <Modal setNeedsReload={setNeedsReload} open={open} onClose={handleClose}>
         <Box sx={style}>
           <div
             style={{
@@ -60,11 +44,7 @@ export default function BasicModal({ setNeedsReload }) {
               <CloseIcon />
             </IconButton>
           </div>
-          <FormAddItem
-            setNeedsReload={setNeedsReload}
-            setShowMessage={setShowMessage}
-            showMessage={showMessage}
-          />
+          <FormAddItem />
         </Box>
       </Modal>
     </div>
