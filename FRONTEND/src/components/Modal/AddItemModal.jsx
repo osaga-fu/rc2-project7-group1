@@ -13,10 +13,8 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "80%",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
   p: 4,
+  border: "none",
 };
 
 export default function BasicModal({ setNeedsReload }) {
@@ -29,18 +27,18 @@ export default function BasicModal({ setNeedsReload }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="containerOpenModal"> 
-      <h1 className="title">Guarda aquí tus recursos</h1>
-      <Button onClick={handleOpen}>
+    <div className="containerOpenModal">
+      <h1 className="title">TODOS TUS RECURSOS, EN UN MISMO LUGAR</h1>
+      <Button onClick={handleOpen} >
         <div className="buttonAddText">AÑADIR
-        <input
-          type="submit"
-          value="+"
-          className="buttonAdd"
-        />
+          <input
+            type="submit"
+            value="+"
+            className="buttonAdd"
+          />
         </div>
       </Button>
-        <Modal
+      <Modal
         setNeedsReload={setNeedsReload}
         open={open}
         onClose={handleClose}
@@ -52,8 +50,9 @@ export default function BasicModal({ setNeedsReload }) {
           <div
             style={{
               position: "absolute",
-              top: 10,
-              right: 10,
+              top: 30,
+              right: 30,
+
             }}
           >
             <IconButton onClick={handleClose}>
