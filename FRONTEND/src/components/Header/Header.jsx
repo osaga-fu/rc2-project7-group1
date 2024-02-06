@@ -1,4 +1,5 @@
 import { FormAddItem } from "../FormAddItem/FormAddItem";
+import  AddItemModal  from "../Modal/AddItemModal";
 import { Logo } from "../Logo/Logo";
 
 export const Header = ({ setNeedsReload }) => {
@@ -6,6 +7,7 @@ export const Header = ({ setNeedsReload }) => {
     <header>
       <Logo />
       <FormAddItem setNeedsReload={setNeedsReload} />
+      <AddItemModal setNeedsReload={setNeedsReload} />
     </header>
   );
 };

@@ -1,5 +1,5 @@
 .containerList {
-  height: 100rem;
+  min-height: 50vh;
   background-color: var(--aquamarine);
   border: solid 3px var(--orange);
   border-radius: 5rem;
@@ -10,6 +10,7 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 2rem;
+
 }
 
 .titleElement {

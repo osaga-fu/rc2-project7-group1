@@ -2,7 +2,8 @@ import "./FormAddItem.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export const FormAddItem = ({ setNeedsReload }) => {
+
+export const FormAddItem = ({ setNeedsReload}, {showMessage}, {setShowMessage }) => {
   const [newItemTitle, setNewItemTitle] = useState("");
   const [newItemUrl, setNewItemUrl] = useState("");
   const {id} = useParams();
@@ -10,7 +11,9 @@ export const FormAddItem = ({ setNeedsReload }) => {
 
   const URL = "http://localhost:9000/items";
 
+
   useEffect(()=>{
+    setShowMessage(false);
     if (id){
       fetch(`${URL}/${id}`)
       .then((response)=>response.json())
@@ -22,7 +25,7 @@ export const FormAddItem = ({ setNeedsReload }) => {
         console.error("Error fetching item data", error)
       })
     }
-  },[id])
+  },[id, setShowMessage])
 
   const postItem = (e) => {
     e.preventDefault();
@@ -38,14 +41,14 @@ export const FormAddItem = ({ setNeedsReload }) => {
         setNewItemUrl("");
         setNeedsReload(true);
         navigate("/");
-        id ? alert("Cambios realizados correctamente"): alert("Recurso añadido!") ;
+        setShowMessage && typeof setShowMessage === 'function' && setShowMessage(true);
       }
     });
   };
 
   return (
       <form onSubmit={postItem} className="formContainer">
-        <div  className="inputContainer">
+        <div className="inputContainer">
           <input
             className="formInput"
             name="title"
@@ -74,6 +77,7 @@ export const FormAddItem = ({ setNeedsReload }) => {
             />
           </button>
         </div>
+        {showMessage && <p>Recurso añadido</p>}
       </form>
   );
 };
