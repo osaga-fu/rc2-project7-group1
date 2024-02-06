@@ -4,7 +4,8 @@ import Button from "@mui/material/Button";
 import { Modal, IconButton } from "@mui/material";
 import { FormAddItem } from "../FormAddItem/FormAddItem";
 import CloseIcon from "@mui/icons-material/Close";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
+import "./AddItemModal.css";
 
 const style = {
   position: "absolute",
@@ -28,15 +29,24 @@ export default function BasicModal({ setNeedsReload }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
-      <Button onClick={handleOpen}>Añadir recurso</Button>
-      <Modal
+    <div className="containerOpenModal"> 
+      <h1 className="title">Guarda aquí tus recursos</h1>
+      <Button onClick={handleOpen}>
+        <div className="buttonAddText">AÑADIR
+        <input
+          type="submit"
+          value="+"
+          className="buttonAdd"
+        />
+        </div>
+      </Button>
+        <Modal
         setNeedsReload={setNeedsReload}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        
+
       >
         <Box sx={style}>
           <div

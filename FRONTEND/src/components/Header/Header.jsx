@@ -6,7 +6,6 @@ export const Header = ({ setNeedsReload }) => {
   return (
     <header>
       <Logo />
-      <FormAddItem setNeedsReload={setNeedsReload} />
       <AddItemModal setNeedsReload={setNeedsReload} />
     </header>
   );

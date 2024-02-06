@@ -60,7 +60,7 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
             </a>
             <div className="buttonContainer">
               <Link to = {`/edit/${item.id}`}>
-              <button className="editButton">
+              <button className="editButton" >
               <ThemeProvider theme={theme}>
                 <ModeIcon  sx={{color:"secondary.main", fontSize: 50}}/>
               </ThemeProvider>
