@@ -1,11 +1,10 @@
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Modal, IconButton } from "@mui/material";
 import { FormAddItem } from "../FormAddItem/FormAddItem";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState, useEffect } from "react";
 import "./AddItemModal.css";
+import { useResourcesContext } from "../Context/ResourcesContext";
 
 const style = {
   position: "absolute",
@@ -17,14 +16,9 @@ const style = {
   border: "none",
 };
 
-export default function BasicModal({ setNeedsReload }) {
-  const [open, setOpen] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-    setShowMessage(false);
-  };
-  const handleClose = () => setOpen(false);
+export default function BasicModal() {
+  const { setNeedsReload, open, handleOpen, handleClose } =
+    useResourcesContext();
 
   return (
     <div className="containerOpenModal">
@@ -59,11 +53,7 @@ export default function BasicModal({ setNeedsReload }) {
               <CloseIcon />
             </IconButton>
           </div>
-          <FormAddItem
-            setNeedsReload={setNeedsReload}
-            setShowMessage={setShowMessage}
-            showMessage={showMessage}
-          />
+          <FormAddItem />
         </Box>
       </Modal>
     </div>
