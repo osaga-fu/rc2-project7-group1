@@ -3,6 +3,9 @@
   flex:1;
   gap: 5rem;
   background-color: var(--aquamarine);
+  border-radius: 5rem;
+  width: 100%;
+  padding: 3rem;
 }
 
 .inputContainer {
@@ -41,7 +44,6 @@
   color: var(--white);
   font-family: var(--font);
   font-size: 4rem;
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
