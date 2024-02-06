@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 
-export const FormAddItem = ({ setNeedsReload}, {showMessage}, {setShowMessage }) => {
+export const FormAddItem = ({ setNeedsReload, showMessage, setShowMessage }) => {
   const [newItemTitle, setNewItemTitle] = useState("");
   const [newItemUrl, setNewItemUrl] = useState("");
   const {id} = useParams();
@@ -13,7 +13,7 @@ export const FormAddItem = ({ setNeedsReload}, {showMessage}, {setShowMessage })
 
 
   useEffect(()=>{
-    setShowMessage(false);
+    setShowMessage = false;
     if (id){
       fetch(`${URL}/${id}`)
       .then((response)=>response.json())
@@ -41,7 +41,7 @@ export const FormAddItem = ({ setNeedsReload}, {showMessage}, {setShowMessage })
         setNewItemUrl("");
         setNeedsReload(true);
         navigate("/");
-        setShowMessage && typeof setShowMessage === 'function' && setShowMessage(true);
+        setShowMessage(true);
       }
     });
   };
