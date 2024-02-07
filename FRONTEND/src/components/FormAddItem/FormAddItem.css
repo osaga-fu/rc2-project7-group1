@@ -51,6 +51,7 @@
   height: 10rem;
   width: 30rem;
   padding-left: 4rem;
+  cursor: pointer;
 }
 
 .buttonAdd{
