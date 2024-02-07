@@ -2,6 +2,10 @@
   display: flex;
   flex:1;
   gap: 5rem;
+  background-color: var(--aquamarine);
+  border-radius: 5rem;
+  width: 100%;
+  padding: 3rem;
 }
 
 .inputContainer {
@@ -10,6 +14,7 @@
   flex:1;
   flex-direction: column;
   gap: 5rem;
+  padding: 1rem;
 }
 
 .formInput {
@@ -27,24 +32,26 @@
 }
 
 .buttonAddContainer{
-    align-self: flex-end;
+    display: flex;
+    margin-bottom: 7rem;
+    margin-right: 7rem;
 }
 
 .buttonAddText {
-  background-color: var(--aquamarine);
+  background-color: var(--darkblue);
   border: none;
   border-radius: 5rem;
   color: var(--white);
   font-family: var(--font);
   font-size: 4rem;
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: end;
   height: 10rem;
-  width: 43rem;
+  width: 30rem;
   padding-left: 4rem;
+  cursor: pointer;
 }
 
 .buttonAdd{
