@@ -21,11 +21,7 @@ const theme = createTheme({
 });
 
 export const ResourceList = () => {
-  const {
-    needsReload,
-    setNeedsReload,
-    handleOpen,
-  } = useResourcesContext();
+  const { needsReload, setNeedsReload, handleOpen } = useResourcesContext();
 
   const [items, setItems] = useState([]);
   const URL = "http://localhost:9000/items";

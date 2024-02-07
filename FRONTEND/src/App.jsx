@@ -5,21 +5,14 @@ import { Header } from "./components/Header/Header";
 import { ResourcesContextProvider } from "./components/Context/ResourcesContext";
 
 function App() {
-
   return (
     <BrowserRouter>
       <ResourcesContextProvider>
         <Routes>
-          <Route
-            path="/"
-            element={<Header />}
-          />
-          <Route
-            path="/edit/:id"
-            element={<Header />}
-          />
+          <Route path="/" element={<Header />} />
+          <Route path="/edit/:id" element={<Header />} />
         </Routes>
-        <ResourceList/>
+        <ResourceList />
       </ResourcesContextProvider>
     </BrowserRouter>
   );

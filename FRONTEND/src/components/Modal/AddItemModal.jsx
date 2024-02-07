@@ -6,9 +6,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./AddItemModal.css";
 import { useResourcesContext } from "../Context/ResourcesContext";
 
-
-
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -48,10 +45,13 @@ export default function BasicModal() {
               position: "absolute",
               top: 60,
               right: 60,
-              size: 'medium',
+              size: "medium",
             }}
           >
-            <IconButton onClick={handleClose} sx={{ "&:hover": { backgroundColor: "transparent" } }}>
+            <IconButton
+              onClick={handleClose}
+              sx={{ "&:hover": { backgroundColor: "transparent" } }}
+            >
               <CloseIcon />
             </IconButton>
           </div>
