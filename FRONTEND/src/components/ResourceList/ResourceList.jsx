@@ -1,28 +1,32 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/prop-types */
-
 import { useEffect, useState } from "react";
 import "./ResourceList.css";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { createTheme} from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
-import ModeIcon from '@mui/icons-material/Mode';
+import ModeIcon from "@mui/icons-material/Mode";
 import { Link } from "react-router-dom";
+import { useResourcesContext } from "../Context/ResourcesContext";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#F29f05',
+      main: "#F29f05",
     },
     secondary: {
-      main: '#012e40',
-      light: '#024959',
-      contrastText: '#f2f2eb',
+      main: "#012e40",
+      light: "#024959",
+      contrastText: "#f2f2eb",
     },
   },
 });
 
-export const ResourceList = ({ needsReload, setNeedsReload }) => {
+export const ResourceList = () => {
+  const {
+    needsReload,
+    setNeedsReload,
+    handleOpen,
+  } = useResourcesContext();
+
   const [items, setItems] = useState([]);
   const URL = "http://localhost:9000/items";
 
@@ -39,14 +43,14 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
 
   const handleDeleteItem = (id) => {
     fetch(`${URL}/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     })
-    .then(() => {
-      setNeedsReload(true); 
-    })
-    .catch((error) => {
-      console.error('Error deleting item:', error);
-    });
+      .then(() => {
+        setNeedsReload(true);
+      })
+      .catch((error) => {
+        console.error("Error deleting item:", error);
+      });
   };
 
   return (
@@ -59,17 +63,22 @@ export const ResourceList = ({ needsReload, setNeedsReload }) => {
               <h4 className="element">{item.url}</h4>
             </a>
             <div className="buttonContainer">
-              <Link to = {`/edit/${item.id}`}>
-              <button className="editButton">
-              <ThemeProvider theme={theme}>
-                <ModeIcon  sx={{color:"secondary.main", fontSize: 50}}/>
-              </ThemeProvider>
-              </button>
+              <Link to={`/edit/${item.id}`}>
+                <button className="editButton" onClick={handleOpen}>
+                  <ThemeProvider theme={theme}>
+                    <ModeIcon sx={{ color: "secondary.main", fontSize: 50 }} />
+                  </ThemeProvider>
+                </button>
               </Link>
-              <button className="deleteButton" onClick={() => handleDeleteItem(item.id)}>
-              <ThemeProvider theme={theme}>
-                <DeleteForeverIcon  sx={{color:"secondary.main", fontSize: 50}}/>
-              </ThemeProvider>
+              <button
+                className="deleteButton"
+                onClick={() => handleDeleteItem(item.id)}
+              >
+                <ThemeProvider theme={theme}>
+                  <DeleteForeverIcon
+                    sx={{ color: "secondary.main", fontSize: 50 }}
+                  />
+                </ThemeProvider>
               </button>
             </div>
           </article>
